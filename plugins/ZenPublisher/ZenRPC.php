@@ -165,7 +165,7 @@ function getFolderNode( $foldername )
 function getSubAlbums( $gallery, $album )
 {
 	$list     = array( );
-	$albumObj = new Album( $gallery, $album );
+	$albumObj = newAlbum( $album );
 	$albumID  = $albumObj->getID();
 	$parentID = getItemByID( "albums", $albumID );
 	if ( $albumObj->isDynamic() || !$albumID )
@@ -393,7 +393,7 @@ function getAlbumList( $args )
 	//    create album objects and get needed values
 	//
 	foreach ( $allalbums as $albumfolder ) {
-		$album = new Album( $gallery, $albumfolder );
+		$album = newAlbum( $albumfolder );
 		//
 		//    ignore dynamic albums
 		//
@@ -662,7 +662,7 @@ function createAlbum( $args )
 	else
 		@mkdir_recursive( $uploaddir, CHMOD_VALUE );
 	@chmod( $uploaddir, CHMOD_VALUE );
-	$album = new Album( $gallery, $folder );
+	$album = newAlbum( $folder );
 	if ( !$album->name )
 		return new ZEN_Error( -1, 'Album could not be created ' . $args[ 'name' ] );
 	$album->setTitle( $args[ 'name' ] );
