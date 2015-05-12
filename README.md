@@ -12,3 +12,7 @@ Furthermore, whenever you add or remove photos from your published collections, 
 
  Read more
 http://philbertphotos.github.com/Zenphoto-Lightroom-Publisher
+
+May 12 2015
+Tiny fix to support ZenPhoto 1.4.7
+Tested with Lightroom 6
