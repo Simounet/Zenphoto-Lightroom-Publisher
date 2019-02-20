@@ -661,8 +661,8 @@ function createAlbum( $args )
 	if ( is_dir( $uploaddir ) )
 		return new ZEN_Error( -1, 'Album with folder "' . $folder . '" does already exists!' );
 	else
-		@mkdir_recursive( $uploaddir, CHMOD_VALUE );
-	@chmod( $uploaddir, CHMOD_VALUE );
+		@mkdir_recursive( $uploaddir, FOLDER_MOD );
+        @chmod( $uploaddir, FOLDER_MOD );
 	$album = newAlbum( $folder );
 	if ( !$album->name )
 		return new ZEN_Error( -1, 'Album could not be created ' . $args[ 'name' ] );
