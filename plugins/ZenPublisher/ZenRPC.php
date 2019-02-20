@@ -344,7 +344,8 @@ function authorize( $args )
 	$args = decode64( $args );
 	//debugLog('after decode: '.var_export($args, true));
 	logger( 'authorize', ( $args[ 'loglevel' ] ) );
-	if ( !preg_match( '#^1.4#', ( $version = getVersion() ) ) )
+	$version = getVersion();
+	if ( 1.4 >= $version )
 		return new ZEN_Error( -2, 'Zenphoto version ' . $version . ' but v1.4.x required!' );
 	$_zp_authority = new Zenphoto_Authority();
 	$hash          = $_zp_authority->passwordHash( $args[ 'loginUsername' ], $args[ 'loginPassword' ] );
